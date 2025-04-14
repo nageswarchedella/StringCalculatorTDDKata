@@ -16,4 +16,8 @@ class StringCalculatorTest < Minitest::Test
   def test_mupliple_numbers
     assert_equal 15, StringCalculator.add("1,2,3,4,5")
   end
+
+  def test_new_line_delimiter
+    assert_equal 6, StringCalculator.add("1\n2,3")
+  end
 end
