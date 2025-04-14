@@ -2,12 +2,12 @@ class StringCalculator
   def self.add(string)
     return 0 if string.empty?
 
-    delimiter = /[\n,]/
+    delimiter = '\n,'
     if string.start_with?('//')
-      delimiter = string.split(' ')[0][2..]
+      delimiter = string.split(' ')[0][2..].split(/[\[\]]/).join('')
       string = string.split(' ')[1]
     end
-    numbers = string.split(delimiter).map(&:to_i)
+    numbers = string.split(/[#{delimiter}]/).map(&:to_i)
     if numbers.any?(&:negative?)
       negatives = numbers.select(&:negative?)
       raise "negative numbers not allowed #{negatives.join(',')}"
