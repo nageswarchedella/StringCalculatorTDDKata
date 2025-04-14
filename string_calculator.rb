@@ -1,11 +1,11 @@
 class StringCalculator
   def self.add(string)
-    0 if string.empty?
-    if string.start_with?("//")
+    return 0 if string.empty?
+
+    delimiter = /[\n,]/
+    if string.start_with?('//')
       delimiter = string[2]
-      string = string[4..-1]
-    else
-      delimiter = /[\n,]/
+      string = string[4..]
     end
     numbers = string.split(delimiter)
     if numbers.any? { |num| num.to_i.negative? }
