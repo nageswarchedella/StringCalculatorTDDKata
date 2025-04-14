@@ -30,4 +30,8 @@ class StringCalculatorTest < Minitest::Test
       StringCalculator.add("1,-2,3")
     end
   end
+  
+  def test_ignore_large_numbers
+    assert_equal 2, StringCalculator.add("1001,2")
+  end
 end
