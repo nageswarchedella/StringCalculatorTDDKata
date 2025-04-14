@@ -12,4 +12,8 @@ class StringCalculatorTest < Minitest::Test
   def test_two_numbers
     assert_equal 3, StringCalculator.add("1,2")
   end
+
+  def test_mupliple_numbers
+    assert_equal 15, StringCalculator.add("1,2,3,4,5")
+  end
 end
