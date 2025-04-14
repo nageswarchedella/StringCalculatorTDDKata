@@ -7,12 +7,12 @@ class StringCalculator
       delimiter = string[2]
       string = string[4..]
     end
-    numbers = string.split(delimiter)
-    if numbers.any? { |num| num.to_i.negative? }
-      negatives = numbers.select { |num| num.to_i.negative? }
+    numbers = string.split(delimiter).map(&:to_i)
+    if numbers.any?(&:negative?)
+      negatives = numbers.select(&:negative?)
       raise "negative numbers not allowed #{negatives.join(',')}"
     end
 
-    numbers.map(&:to_i).sum
+    numbers.select { |num| num <= 1000 }.sum
   end
 end
