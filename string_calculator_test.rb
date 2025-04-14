@@ -24,4 +24,10 @@ class StringCalculatorTest < Minitest::Test
   def test_custom_delimiter
     assert_equal 3, StringCalculator.add("//;\n1;2")
   end
+  
+  def test_negative_numbers
+    assert_raises(RuntimeError) do
+      StringCalculator.add("1,-2,3")
+    end
+  end
 end
