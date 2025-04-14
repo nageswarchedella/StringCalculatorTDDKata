@@ -34,4 +34,8 @@ class StringCalculatorTest < Minitest::Test
   def test_ignore_large_numbers
     assert_equal 2, StringCalculator.add("1001,2")
   end
+
+  def test_delimiters_of_any_length
+    assert_equal 6, StringCalculator.add("//***\n1***2***3")
+  end
 end
