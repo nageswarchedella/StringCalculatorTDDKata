@@ -42,4 +42,8 @@ class StringCalculatorTest < Minitest::Test
   def test_multiple_delimiters
     assert_equal 6, StringCalculator.add("//[*][%]\n1*2%3")
   end
+
+  def test_multiple_delimiters_of_any_length
+    assert_equal 6, StringCalculator.add("//[***][%%%]\n1***2%%%3")
+  end
 end
