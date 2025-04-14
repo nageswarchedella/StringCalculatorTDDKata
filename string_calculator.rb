@@ -4,8 +4,8 @@ class StringCalculator
 
     delimiter = /[\n,]/
     if string.start_with?('//')
-      delimiter = string[2]
-      string = string[4..]
+      delimiter = string.split(' ')[0][2..]
+      string = string.split(' ')[1]
     end
     numbers = string.split(delimiter).map(&:to_i)
     if numbers.any?(&:negative?)
