@@ -7,6 +7,12 @@ class StringCalculator
     else
       delimiter = /[\n,]/
     end
-    string.split(delimiter).map(&:to_i).sum
+    numbers = string.split(delimiter)
+    if numbers.any? { |num| num.to_i.negative? }
+      negatives = numbers.select { |num| num.to_i.negative? }
+      raise "negative numbers not allowed #{negatives.join(',')}"
+    end
+
+    numbers.map(&:to_i).sum
   end
 end
