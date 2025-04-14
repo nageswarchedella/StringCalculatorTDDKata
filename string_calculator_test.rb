@@ -20,4 +20,8 @@ class StringCalculatorTest < Minitest::Test
   def test_new_line_delimiter
     assert_equal 6, StringCalculator.add("1\n2,3")
   end
+
+  def test_custom_delimiter
+    assert_equal 3, StringCalculator.add("//;\n1;2")
+  end
 end
